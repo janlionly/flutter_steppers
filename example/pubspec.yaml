@@ -37,6 +37,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^1.1.5
   get: 4.6.1
+  steppers:
+    path: ../
+
+dependency_overrides:
+  steppers:
+    path: ../
 
 dev_dependencies:
   flutter_test:

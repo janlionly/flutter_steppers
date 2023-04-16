@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../vertical_steppers.dart';
-import '../stepper_style.dart';
+import 'package:steppers/stepper_style.dart';
+import 'package:steppers/vertical_steppers.dart';
 import 'vertical_progress_step_controller.dart';
 
 class VerticalProgressStep extends StatefulWidget {

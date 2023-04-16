@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'ex/step_bar_page.dart';
+import '/step_bar_page.dart';
 
 void main() {
   runApp(const MyApp());

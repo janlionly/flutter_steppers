@@ -1,5 +1,5 @@
 
-import 'package:example/colors.dart';
+import 'package:steppers/colors.dart';
 import 'package:flutter/material.dart';
 
 class StepperStyle {

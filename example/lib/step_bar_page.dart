@@ -1,6 +1,6 @@
-import 'package:example/style.dart';
 import 'package:flutter/material.dart';
-import '../colors.dart';
+import 'package:steppers/colors.dart';
+import 'package:steppers/style.dart';
 import 'horizontal_progress_step_w.dart';
 import 'vertical_progress_step_w.dart';
 

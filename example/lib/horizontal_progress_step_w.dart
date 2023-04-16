@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../horizontal_steppers.dart';
-import '../stepper_style.dart';
+import 'package:steppers/horizontal_steppers.dart';
+import 'package:steppers/stepper_style.dart';
 import 'horizontal_progress_step_controller.dart';
 
 class HorizontalProgressStep extends StatefulWidget {

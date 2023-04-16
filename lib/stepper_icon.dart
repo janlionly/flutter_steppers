@@ -1,4 +1,4 @@
-import 'package:example/colors.dart';
+import 'package:steppers/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'stepper_data.dart';

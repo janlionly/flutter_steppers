@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../stepper_data.dart';
+import 'package:steppers/stepper_data.dart';
 
 class VerticalProgressStepController extends GetxController {
   var currentStep = 1.obs;
