@@ -7,7 +7,6 @@ import 'stepper_style.dart';
 class ProgressStepHorizotalDivider extends StatelessWidget {
   ProgressStepHorizotalDivider({
     Key? key,
-    List<int>? features,
     required this.step,
     required this.currentStep,
     required this.totalSteps,

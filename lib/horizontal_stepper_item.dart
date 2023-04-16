@@ -8,7 +8,6 @@ import 'stepper_style.dart';
 class HorizontalStepperItem extends StatelessWidget {
   HorizontalStepperItem({
     Key? key,
-    List<int>? features,
     required this.step,
     required this.currentStep,
     required this.totalSteps,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:steppers/stepper_style.dart';
-import 'package:steppers/vertical_steppers.dart';
+import 'package:steppers/steppers.dart';
 import 'vertical_progress_step_controller.dart';
 
 class VerticalProgressStep extends StatefulWidget {
@@ -12,7 +11,6 @@ class VerticalProgressStep extends StatefulWidget {
 }
 
 class _VerticalProgressStepState extends State<VerticalProgressStep> {
-
   final controller = Get.put(VerticalProgressStepController());
 
   @override
@@ -24,33 +22,39 @@ class _VerticalProgressStepState extends State<VerticalProgressStep> {
   _isPassedStep(int step, int currentStep) => step <= currentStep || controller.currentStep.value == 3;
 
   _initStepData() {
-    // controller.stepsData[0].child = Obx(
-    //       () => Container(
-    //     margin: const EdgeInsets.only(top: 8),
-    //     child: DSButton(
-    //       enableTracking: true,
-    //       identity: 'close',
-    //       title: 'Button Step 1',
-    //       size: DsButtonSize.COMPACT,
-    //       style: _isPassedStep(1, controller.currentStep.value) ? DsButtonStyle.SECONDARY : DsButtonStyle.DISABLED,
-    //       onPressed: () {},
-    //     ),
-    //   ),
-    // );
+    controller.stepsData[0].child = Container(
+        margin: const EdgeInsets.only(top: 8),
+        // child: DSButton(
+        //   enableTracking: true,
+        //   identity: 'close',
+        //   title: 'Button Step 1',
+        //   size: DsButtonSize.COMPACT,
+        //   style: _isPassedStep(1, controller.currentStep.value) ? DsButtonStyle.SECONDARY : DsButtonStyle.DISABLED,
+        //   onPressed: () {},
+        // ),
+            child: ElevatedButton(
+              child: const Text('Call'),
+              onPressed: () {
+              },
+            ),
+    );
 
-    // controller.stepsData[2].child = Obx(
-    //       () => Container(
-    //     margin: const EdgeInsets.only(top: 8),
-    //     child: DSButton(
-    //       enableTracking: true,
-    //       identity: 'close',
-    //       title: 'Button Step 3',
-    //       size: DsButtonSize.COMPACT,
-    //       style: _isPassedStep(3, controller.currentStep.value) ? DsButtonStyle.SECONDARY : DsButtonStyle.DISABLED,
-    //       onPressed: () {},
-    //     ),
-    //   ),
-    // );
+    controller.stepsData[2].child = Container(
+        margin: const EdgeInsets.only(top: 8),
+        // child: DSButton(
+        //   enableTracking: true,
+        //   identity: 'close',
+        //   title: 'Button Step 3',
+        //   size: DsButtonSize.COMPACT,
+        //   style: _isPassedStep(3, controller.currentStep.value) ? DsButtonStyle.SECONDARY : DsButtonStyle.DISABLED,
+        //   onPressed: () {},
+        // ),
+        //     child: ElevatedButton(
+        //       child: const Text('Done'),
+        //       onPressed: () {
+        //       },
+        //     ),
+    );
   }
 
   @override
@@ -58,7 +62,8 @@ class _VerticalProgressStepState extends State<VerticalProgressStep> {
     return Column(
       children: [
         Obx(
-              () => VerticalSteppers(
+          () => Steppers(
+            direction: StepperDirection.vertical,
             labels: controller.stepsData,
             currentStep: controller.currentStep.value,
             stepBarStyle: StepperStyle(

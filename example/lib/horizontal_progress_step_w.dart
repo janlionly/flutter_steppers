@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:steppers/horizontal_steppers.dart';
-import 'package:steppers/stepper_style.dart';
+import 'package:steppers/steppers.dart';
 import 'horizontal_progress_step_controller.dart';
 
 class HorizontalProgressStep extends StatefulWidget {
@@ -19,12 +18,13 @@ class _HorizontalProgressStepState extends State<HorizontalProgressStep> {
     return Column(
       children: [
         Obx(
-              () => HorizontalSteppers(
+          () => Steppers(
+            direction: StepperDirection.horizontal,
             labels: controller.stepsData,
             currentStep: controller.currentStep.value,
             stepBarStyle: StepperStyle(
               //   activeColor: DSColors.red500,
-              maxLineLabel: 1,
+              maxLineLabel: 2,
               //   inactiveColor: DSColors.purple100
             ),
           ),

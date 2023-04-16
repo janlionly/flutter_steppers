@@ -17,7 +17,9 @@ class StepperIcon extends StatelessWidget {
   final int step;
   StepperStyle stepBarStyle;
   StepperData stepData;
+
   bool _isCurrentStep(int step) => currentStep >= step;
+
   bool _isPassedStep(int step) => currentStep <= step;
 
   @override
@@ -35,11 +37,7 @@ class StepperIcon extends StatelessWidget {
             child: _isPassedStep(step)
                 ? Text(
                     '$step',
-                    style: const TextStyle(
-                        color: StepperColors.white500,
-                        fontSize: 12, fontWeight:
-                    FontWeight.bold
-                    ),
+                    style: const TextStyle(color: StepperColors.white500, fontSize: 12, fontWeight: FontWeight.bold),
                   )
                 : const Icon(
                     Icons.done_rounded,
@@ -50,16 +48,17 @@ class StepperIcon extends StatelessWidget {
   }
 
   get _errorWidget => Container(
-      alignment: Alignment.center,
-      width: 24,
-      height: 24,
-      decoration: const BoxDecoration(
-        color: StepperColors.red500,
-        shape: BoxShape.circle,
-      ),
-      child: SvgPicture.asset(
-        'assets/ic_alert.png',
-        color: StepperColors.white500,
-      ),
-  );
+        alignment: Alignment.center,
+        width: 24,
+        height: 24,
+        decoration: const BoxDecoration(
+          color: StepperColors.red500,
+          shape: BoxShape.circle,
+        ),
+        child: const Icon(
+          Icons.error,
+          color: Colors.white,
+          size: 16,
+        ),
+      );
 }

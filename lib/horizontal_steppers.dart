@@ -8,17 +8,15 @@ import 'stepper_style.dart';
 class HorizontalSteppers extends StatelessWidget {
   HorizontalSteppers({
     Key? key,
-    List<int>? features,
     required this.labels,
     required this.currentStep,
-    this.stepBarStyle,
+    required this.stepBarStyle,
   });
 
   List<StepperData> labels;
   int currentStep;
-  StepperStyle? stepBarStyle;
+  StepperStyle stepBarStyle;
   get _totalSteps => labels.length;
-  get _stepBarStyle => stepBarStyle ??= StepperStyle();
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +45,7 @@ class HorizontalSteppers extends StatelessWidget {
               step: index + 1,
               currentStep: currentStep,
               totalSteps: _totalSteps,
-              stepBarStyle: _stepBarStyle,
+              stepBarStyle: stepBarStyle,
               labels: labels,
           )
       );
@@ -63,7 +61,7 @@ class HorizontalSteppers extends StatelessWidget {
         currentStep: currentStep,
         stepData: model,
         totalSteps: _totalSteps,
-        stepBarStyle: _stepBarStyle,
+        stepBarStyle: stepBarStyle,
       ));
     });
     return stepWidgets;
