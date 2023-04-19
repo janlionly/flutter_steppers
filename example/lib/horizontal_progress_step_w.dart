@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:steppers/colors.dart';
 import 'package:steppers/steppers.dart';
-import 'horizontal_progress_step_controller.dart';
 
 class HorizontalProgressStep extends StatefulWidget {
   HorizontalProgressStep({Key? key}) : super(key: key);
@@ -47,7 +45,7 @@ class _HorizontalProgressStepState extends State<HorizontalProgressStep> {
             stepBarStyle: StepperStyle(
                 // activeColor: StepperColors.red500,
               maxLineLabel: 2,
-                // inactiveColor: StepperColors.purple100
+                // inactiveColor: StepperColors.ink200s
             ),
           ),
         const SizedBox(
@@ -80,30 +78,23 @@ class _HorizontalProgressStepState extends State<HorizontalProgressStep> {
 
   void _nextStep() {
     _doWork();
-    if (currentStep > totalSteps) { // reset - test only
-      currentStep = 1;
-      return;
-    }
+    if (currentStep > totalSteps) return;
+    // check if current step has no error, then move to the next step
     if(stepsData[currentStep-1].state != StepperState.error) {
       currentStep++;
     }
   }
 
-  _fakeErrorOccurs() {
-    hasError = true;
-    stepsData[currentStep - 1].state = StepperState.error;
-  }
-
   _doWork() {
-    if(currentStep == totalSteps - 1){
-      _fakeErrorOccurs();
+    if(currentStep == 3){ // fake error happens at step 3 when do work
+      stepsData[2].state = StepperState.error;
     }
   }
 
-  _fixError() {
-    if(!hasError) return;
-    hasError = false;
-    stepsData[currentStep - 1].state = StepperState.normal;
-    currentStep++;
+  _fixError() { // fix error at the step 3 to continue to step 4
+    if(stepsData[2].state == StepperState.error) {
+      stepsData[2].state = StepperState.normal;
+      currentStep++;
+    }
   }
 }
