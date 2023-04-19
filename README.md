@@ -11,7 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-Open source Flutter package, bar indicator made of a series of selected and unselected steps.
+Open source Flutter package, bar indicator made of a series of selected and unselected steps. 
 Made by Nguyen Phuong Nam (namnpse)
 
 ## Features
