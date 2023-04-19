@@ -23,7 +23,7 @@ class _StepBarPageState extends State<StepBarPage> {
               height: 16,
             ),
             Text(
-              'Horizontal Progress Step',
+              'Horizontal Steppers',
               style: StepperStyles.t16SB.copyWith(color: StepperColors.grey500s),
             ),
             const SizedBox(
@@ -34,7 +34,7 @@ class _StepBarPageState extends State<StepBarPage> {
               height: 16,
             ),
             Text(
-              'Vertical Progress Step',
+              'Vertical Steppers',
               style: StepperStyles.t16SB.copyWith(color: StepperColors.grey500s),
             ),
             const SizedBox(

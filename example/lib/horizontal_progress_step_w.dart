@@ -12,7 +12,6 @@ class HorizontalProgressStep extends StatefulWidget {
 class _HorizontalProgressStepState extends State<HorizontalProgressStep> {
   var currentStep = 1;
   var totalSteps = 0;
-  var hasError = false;
   final stepsData = [
     StepperData(
       label: 'Step 1',

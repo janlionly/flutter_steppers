@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:steppers/steppers.dart';
-import 'vertical_progress_step_controller.dart';
 
 class VerticalProgressStep extends StatefulWidget {
   VerticalProgressStep({Key? key}) : super(key: key);
@@ -11,66 +9,49 @@ class VerticalProgressStep extends StatefulWidget {
 }
 
 class _VerticalProgressStepState extends State<VerticalProgressStep> {
-  final controller = Get.put(VerticalProgressStepController());
+  var currentStep = 1;
+  var totalSteps = 0;
+  late List<StepperData> stepsData;
 
   @override
   void initState() {
     super.initState();
-    _initStepData();
-  }
-
-  _isPassedStep(int step, int currentStep) => step <= currentStep || controller.currentStep.value == 3;
-
-  _initStepData() {
-    controller.stepsData[0].child = Container(
-        margin: const EdgeInsets.only(top: 8),
-        // child: DSButton(
-        //   enableTracking: true,
-        //   identity: 'close',
-        //   title: 'Button 1',
-        //   size: DsButtonSize.COMPACT,
-        //   style: _isPassedStep(1, controller.currentStep.value) ? DsButtonStyle.SECONDARY : DsButtonStyle.DISABLED,
-        //   onPressed: () {},
-        // ),
-            child: ElevatedButton(
-              child: const Text('Button 1'),
-              onPressed: () {
-              },
-            ),
-    );
-
-    controller.stepsData[2].child = Container(
-        margin: const EdgeInsets.only(top: 8),
-        // child: DSButton(
-        //   enableTracking: true,
-        //   identity: 'close',
-        //   title: 'Button Step 3',
-        //   size: DsButtonSize.COMPACT,
-        //   style: _isPassedStep(3, controller.currentStep.value) ? DsButtonStyle.SECONDARY : DsButtonStyle.DISABLED,
-        //   onPressed: () {},
-        // ),
-        //     child: ElevatedButton(
-        //       child: const Text('Done'),
-        //       onPressed: () {
-        //       },
-        //     ),
-    );
+    stepsData = [
+      StepperData(
+        label: 'Step 1',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur risus est, sed consequat libero luctus vitae. Duis ultrices magna quis risus porttitor luctus. Nulla vel tempus nisl, ultricies congue lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+        child: ElevatedButton(
+          child: const Text('Button 1'),
+          onPressed: () {},
+        ),
+      ),
+      StepperData(
+        label: 'Step 2',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur risus est, sed consequat libero luctus vitae. Duis ultrices magna quis risus porttitor luctus. Nulla vel tempus nisl, ultricies congue lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+      ),
+      StepperData(
+        label: 'Step 3',
+      ),
+      StepperData(
+        label: 'Step 4',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur risus est, sed consequat libero luctus vitae. Duis ultrices magna quis risus porttitor luctus. Nulla vel tempus nisl, ultricies congue lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+      ),
+    ];
+    totalSteps = stepsData.length;
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Obx(
-          () => Steppers(
-            direction: StepperDirection.vertical,
-            labels: controller.stepsData,
-            currentStep: controller.currentStep.value,
-            stepBarStyle: StepperStyle(
-              //   activeColor: DSColors.red500,
-              maxLineLabel: 2,
-              //   inactiveColor: DSColors.purple100
-            ),
+        Steppers(
+          direction: StepperDirection.vertical,
+          labels: stepsData,
+          currentStep: currentStep,
+          stepBarStyle: StepperStyle(
+            //   activeColor: DSColors.red500,
+            maxLineLabel: 2,
+            //   inactiveColor: DSColors.purple100
           ),
         ),
         const SizedBox(
@@ -82,18 +63,46 @@ class _VerticalProgressStepState extends State<VerticalProgressStep> {
             ElevatedButton(
               child: const Text('Next'),
               onPressed: () {
-                controller.nextStep();
+                setState(() {
+                  _nextStep();
+                });
               },
             ),
             ElevatedButton(
               child: const Text('Fix Error'),
               onPressed: () {
-                controller.fixError();
+                setState(() {
+                  _fixError();
+                });
               },
             ),
           ],
         ),
       ],
     );
+  }
+
+  void _nextStep() {
+    _doWork();
+    if (currentStep > totalSteps) return;
+    // check if current step has no error, then move to the next step
+    if (stepsData[currentStep - 1].state != StepperState.error) {
+      currentStep++;
+    }
+  }
+
+  _doWork() {
+    if (currentStep == 3) {
+      // fake error happens at step 3 when do work
+      stepsData[2].state = StepperState.error;
+    }
+  }
+
+  _fixError() {
+    // fix error at the step 3 to continue to step 4
+    if (stepsData[2].state == StepperState.error) {
+      stepsData[2].state = StepperState.normal;
+      currentStep++;
+    }
   }
 }
