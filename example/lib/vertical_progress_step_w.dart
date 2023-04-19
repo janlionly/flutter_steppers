@@ -27,13 +27,13 @@ class _VerticalProgressStepState extends State<VerticalProgressStep> {
         // child: DSButton(
         //   enableTracking: true,
         //   identity: 'close',
-        //   title: 'Button Step 1',
+        //   title: 'Button 1',
         //   size: DsButtonSize.COMPACT,
         //   style: _isPassedStep(1, controller.currentStep.value) ? DsButtonStyle.SECONDARY : DsButtonStyle.DISABLED,
         //   onPressed: () {},
         // ),
             child: ElevatedButton(
-              child: const Text('Call'),
+              child: const Text('Button 1'),
               onPressed: () {
               },
             ),

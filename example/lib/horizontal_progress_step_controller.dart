@@ -9,18 +9,17 @@ class HorizontalProgressStepController extends GetxController {
 
   final stepsData = [
     StepperData(
-      label: 'eContractFillData' + ' cá nhân',
+      label: 'Step 1',
     ),
     StepperData(
-      label: 'confirm',
+      label: 'Step 2',
     ),
     StepperData(
-      label: 'eContractSignContract',
+      label: 'Step 3',
     ),
     StepperData(
-      label: 'Hoàn tất',
+      label: 'Step 4',
     ),
-    // UserLocalizations.current.eContractSignContract,
   ].obs;
 
   @override
