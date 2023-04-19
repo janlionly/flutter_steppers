@@ -1,3 +1,3 @@
-## 0.0.1
+## [0.0.1] - 18 April 2023
 
-* TODO: Describe initial release.
+- Initial release
