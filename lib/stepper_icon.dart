@@ -1,11 +1,10 @@
 import 'package:steppers/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'stepper_data.dart';
 import 'stepper_style.dart';
 
 class StepperIcon extends StatelessWidget {
-  StepperIcon({
+  const StepperIcon({
     Key? key,
     required this.step,
     required this.currentStep,
@@ -15,8 +14,8 @@ class StepperIcon extends StatelessWidget {
 
   final int currentStep;
   final int step;
-  StepperStyle stepBarStyle;
-  StepperData stepData;
+  final StepperStyle stepBarStyle;
+  final StepperData stepData;
 
   bool _isCurrentStep(int step) => currentStep >= step;
 

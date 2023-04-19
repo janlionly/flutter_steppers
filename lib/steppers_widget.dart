@@ -1,14 +1,12 @@
-import 'package:steppers/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:steppers/vertical_steppers.dart';
+import 'vertical_steppers.dart';
 import 'horizontal_steppers.dart';
-import 'stepper_icon.dart';
 import 'stepper_data.dart';
 import 'stepper_style.dart';
-import 'style.dart';
 
 enum StepperDirection { horizontal, vertical }
 
+//ignore: must_be_immutable
 class Steppers extends StatelessWidget {
   Steppers({
     Key? key,
@@ -16,12 +14,12 @@ class Steppers extends StatelessWidget {
     required this.currentStep,
     this.stepBarStyle,
     this.direction = StepperDirection.horizontal,
-  });
+  }) : super(key: key);
 
-  List<StepperData> labels;
-  int currentStep;
+  final List<StepperData> labels;
+  final int currentStep;
   StepperStyle? stepBarStyle;
-  StepperDirection direction;
+  final StepperDirection direction;
 
   get _totalSteps => labels.length;
 

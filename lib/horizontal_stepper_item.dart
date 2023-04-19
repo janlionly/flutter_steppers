@@ -6,7 +6,7 @@ import 'stepper_data.dart';
 import 'stepper_style.dart';
 
 class HorizontalStepperItem extends StatelessWidget {
-  HorizontalStepperItem({
+  const HorizontalStepperItem({
     Key? key,
     required this.step,
     required this.currentStep,
@@ -16,13 +16,13 @@ class HorizontalStepperItem extends StatelessWidget {
     Map<String, Object>? trackingParam,
     String? identity,
     TargetPlatform? platformOverride,
-  });
+  }): super(key: key);
 
-  int step;
-  int currentStep;
-  int totalSteps;
-  StepperData stepData;
-  StepperStyle stepBarStyle;
+  final int step;
+  final int currentStep;
+  final int totalSteps;
+  final StepperData stepData;
+  final StepperStyle stepBarStyle;
 
   bool _isCurrentStep(int step) => currentStep >= step;
 

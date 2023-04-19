@@ -1,7 +1,7 @@
 name: steppers
-description: Steppers Widget, Horizontal, Vertical Progress Steps
+description: Steppers Widget, Horizontal, Vertical Progress Steppers
 version: 0.0.1
-homepage:
+homepage: https://github.com/namnpse/flutter_steppers
 
 environment:
   sdk: '>=2.19.2 <3.0.0'

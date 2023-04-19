@@ -5,18 +5,18 @@ import 'stepper_data.dart';
 import 'stepper_style.dart';
 import 'style.dart';
 
-
 class VerticalSteppers extends StatelessWidget {
-  VerticalSteppers({
+  const VerticalSteppers({
     Key? key,
     required this.labels,
     required this.currentStep,
     required this.stepBarStyle,
-  });
+  }) : super(key: key);
 
-  List<StepperData> labels;
-  int currentStep;
-  StepperStyle stepBarStyle;
+  final List<StepperData> labels;
+  final int currentStep;
+  final StepperStyle stepBarStyle;
+
   get _totalSteps => labels.length;
 
   @override
@@ -86,8 +86,10 @@ class VerticalSteppers extends StatelessWidget {
   _isEmpty(String? text) => text == null || text.isEmpty;
 
   _dividerColor(int step, StepperData stepData) {
-    if(step == _totalSteps && stepData.child == null && _isEmpty(stepData.description)) return StepperColors.transparent;
-    if(step < _totalSteps && labels[step].state == StepperState.error) return StepperColors.red500;
+    if (step == _totalSteps && stepData.child == null && _isEmpty(stepData.description)) {
+      return StepperColors.transparent;
+    }
+    if (step < _totalSteps && labels[step].state == StepperState.error) return StepperColors.red500;
     return currentStep > step ? stepBarStyle.activeColor : stepBarStyle.inactiveColor;
   }
 
@@ -120,12 +122,12 @@ class VerticalSteppers extends StatelessWidget {
   }
 
   _labelColor(int step, StepperData stepData) {
-    if(stepData.state == StepperState.error) return StepperColors.red500;
+    if (stepData.state == StepperState.error) return StepperColors.red500;
     return currentStep >= step ? stepBarStyle.activeColor : stepBarStyle.inactiveColor;
   }
 
   _descriptionColor(int step, StepperData stepData) {
-    if(stepData.state == StepperState.error) return stepBarStyle.inactiveDescriptionTextColor;
+    if (stepData.state == StepperState.error) return stepBarStyle.inactiveDescriptionTextColor;
     return currentStep >= step ? stepBarStyle.activeDescriptionTextColor : stepBarStyle.inactiveDescriptionTextColor;
   }
 }

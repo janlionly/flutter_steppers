@@ -4,21 +4,21 @@ import 'package:flutter/material.dart';
 import 'stepper_data.dart';
 import 'stepper_style.dart';
 
-class ProgressStepHorizotalDivider extends StatelessWidget {
-  ProgressStepHorizotalDivider({
+class ProgressStepHorizontalDivider extends StatelessWidget {
+  const ProgressStepHorizontalDivider({
     Key? key,
     required this.step,
     required this.currentStep,
     required this.totalSteps,
     required this.stepBarStyle,
     required this.labels,
-  });
+  }): super(key: key);
 
-  int step;
-  int currentStep;
-  int totalSteps;
-  StepperStyle stepBarStyle;
-  List<StepperData> labels;
+  final int step;
+  final int currentStep;
+  final int totalSteps;
+  final StepperStyle stepBarStyle;
+  final List<StepperData> labels;
 
   bool _isCurrentStep(int step) => currentStep >= step;
 
