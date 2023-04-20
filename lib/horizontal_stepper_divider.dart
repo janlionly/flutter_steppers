@@ -1,6 +1,5 @@
-
-import 'package:steppers/colors.dart';
 import 'package:flutter/material.dart';
+import 'colors.dart';
 import 'stepper_data.dart';
 import 'stepper_style.dart';
 
