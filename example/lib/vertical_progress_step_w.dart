@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:steppers/steppers.dart';
+import 'package:progress_bar_steppers/steppers.dart';
 
 class VerticalProgressStep extends StatefulWidget {
   VerticalProgressStep({Key? key}) : super(key: key);
