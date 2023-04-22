@@ -30,13 +30,13 @@ Check out the full source code [here](https://github.com/namnpse/flutter_stepper
 
 ## Features
 
-- Horizontal Steppers
-- Vertical Steppers
-- Customize Steppers style, indicator color, label max lines, and more ...
+ - Horizontal Steppers
+ - Vertical Steppers
+ - Customize Steppers style, indicator color, label max lines, and more ...
 
 ## Getting started
 
-Install the package.
+Install the package. 
 ```yaml
 dependencies:
   flutter:
@@ -153,4 +153,3 @@ var currentStep = 1;
 ## License
 
 MIT License, see the [LICENSE.md](https://github.com/namnpse/flutter_steppers/blob/master/LICENSE) file for details.
-1
