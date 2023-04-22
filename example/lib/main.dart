@@ -106,9 +106,57 @@ class _StepBarPageState extends State<StepBarPage> {
                 //   inactiveColor: DSColors.grey400
               ),
             ),
+            const SizedBox(
+              height: 16,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  child: const Text('Next'),
+                  onPressed: () {
+                    setState(() {
+                      _nextStep();
+                    });
+                  },
+                ),
+                ElevatedButton(
+                  child: const Text('Fix Error'),
+                  onPressed: () {
+                    setState(() {
+                      _fixError();
+                    });
+                  },
+                ),
+              ],
+            ),
           ],
         ),
       ),
     );
+  }
+
+  _nextStep() {
+    _doWork();
+    if (currentStep > totalSteps) return;
+    // check if current step has no error, then move to the next step
+    if (stepsData[currentStep - 1].state != StepperState.error) {
+      currentStep++;
+    }
+  }
+
+  _doWork() {
+    if (currentStep == 3) {
+      // fake error happens at step 3 when do work
+      stepsData[2].state = StepperState.error;
+    }
+  }
+
+  _fixError() {
+    // fix error at the step 3 to continue to step 4
+    if (stepsData[2].state == StepperState.error) {
+      stepsData[2].state = StepperState.normal;
+      currentStep++;
+    }
   }
 }
