@@ -82,7 +82,7 @@ class _VerticalProgressStepState extends State<VerticalProgressStep> {
     );
   }
 
-  void _nextStep() {
+  _nextStep() {
     _doWork();
     if (currentStep > totalSteps) return;
     // check if current step has no error, then move to the next step
