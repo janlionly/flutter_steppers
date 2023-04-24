@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:progress_bar_steppers/colors.dart';
 import 'package:progress_bar_steppers/steppers.dart';
 
 class HorizontalProgressStep extends StatefulWidget {
-  HorizontalProgressStep({Key? key}) : super(key: key);
+  const HorizontalProgressStep({Key? key}) : super(key: key);
 
   @override
   State<HorizontalProgressStep> createState() => _HorizontalProgressStepState();

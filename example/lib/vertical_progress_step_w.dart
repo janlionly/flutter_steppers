@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:progress_bar_steppers/steppers.dart';
 
 class VerticalProgressStep extends StatefulWidget {
-  VerticalProgressStep({Key? key}) : super(key: key);
+  const VerticalProgressStep({Key? key}) : super(key: key);
 
   @override
   State<VerticalProgressStep> createState() => _VerticalProgressStepState();
