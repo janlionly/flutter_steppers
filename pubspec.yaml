@@ -1,6 +1,6 @@
 name: progress_bar_steppers
-description: Steppers Widget, Horizontal, Vertical Progress Steppers
-version: 0.0.2+1
+description: Open source Flutter package, bar indicator made of a series of selected and unselected steps including Horizontal and Vertical Progress Steppers
+version: 0.0.2+2
 homepage: https://github.com/namnpse/flutter_steppers
 
 environment:
