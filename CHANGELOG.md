@@ -1,3 +1,6 @@
+## [0.0.2+2] - 26 April 2023
+- Update project description, format code
+
 ## [0.0.2+1] - 21 April 2023
 - Update example
 - Update README
