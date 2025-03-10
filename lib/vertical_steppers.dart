@@ -11,11 +11,13 @@ class VerticalSteppers extends StatelessWidget {
     required this.labels,
     required this.currentStep,
     required this.stepBarStyle,
+    this.isHideLastSeparatorLine = false,
   }) : super(key: key);
 
   final List<StepperData> labels;
   final int currentStep;
   final StepperStyle stepBarStyle;
+  final bool isHideLastSeparatorLine;
 
   get _totalSteps => labels.length;
 
@@ -69,7 +71,7 @@ class VerticalSteppers extends StatelessWidget {
                       stepData: stepData,
                     ),
                   ),
-                  _buildSeparatorLine(step, stepData),
+                  _buildSeparatorLine(step, stepData)
                 ],
               ),
               _buildStepContentWidget(step, stepData),
@@ -80,11 +82,13 @@ class VerticalSteppers extends StatelessWidget {
 
   Widget _buildSeparatorLine(int step, StepperData stepData) {
     return Expanded(
+        child: Offstage(
+      offstage: step == labels.length && isHideLastSeparatorLine,
       child: Container(
         width: 1,
         color: _dividerColor(step, stepData),
       ),
-    );
+    ));
   }
 
   _isEmpty(String? text) => text == null || text.isEmpty;

@@ -28,7 +28,7 @@ class StepBarPage extends StatefulWidget {
 }
 
 class _StepBarPageState extends State<StepBarPage> {
-  var currentStep = 1;
+  var currentStep = 2;
   var totalSteps = 0;
   late List<StepperData> stepsData;
 
@@ -105,6 +105,7 @@ class _StepBarPageState extends State<StepBarPage> {
               direction: StepperDirection.vertical,
               labels: stepsData,
               currentStep: currentStep,
+              isHideLastSeparatorLine: true,
               stepBarStyle: StepperStyle(
                 //   activeColor: DSColors.red500,
                 maxLineLabel: 2,

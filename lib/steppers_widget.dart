@@ -14,12 +14,14 @@ class Steppers extends StatelessWidget {
     required this.currentStep,
     this.stepBarStyle,
     this.direction = StepperDirection.horizontal,
+    this.isHideLastSeparatorLine = false,
   }) : super(key: key);
 
   final List<StepperData> labels;
   final int currentStep;
   StepperStyle? stepBarStyle;
   final StepperDirection direction;
+  final bool isHideLastSeparatorLine;
 
   get _totalSteps => labels.length;
 
@@ -39,6 +41,7 @@ class Steppers extends StatelessWidget {
             labels: labels,
             currentStep: currentStep,
             stepBarStyle: _stepBarStyle,
+            isHideLastSeparatorLine: isHideLastSeparatorLine,
           );
   }
 }
