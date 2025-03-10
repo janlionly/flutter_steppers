@@ -27,7 +27,8 @@ class Steppers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    assert(1 < _totalSteps && _totalSteps < 6 && currentStep <= _totalSteps + 1, 'Invalid progress steps');
+    assert(1 < _totalSteps && _totalSteps < 6 && currentStep <= _totalSteps + 1,
+        'Invalid progress steps');
     return direction == StepperDirection.horizontal
         ? HorizontalSteppers(
             labels: labels,

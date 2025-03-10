@@ -30,13 +30,18 @@ class StepperIcon extends StatelessWidget {
             width: 24,
             height: 24,
             decoration: BoxDecoration(
-              color: _isCurrentStep(step) ? stepBarStyle.activeColor : stepBarStyle.inactiveColor,
+              color: _isCurrentStep(step)
+                  ? stepBarStyle.activeColor
+                  : stepBarStyle.inactiveColor,
               shape: BoxShape.circle,
             ),
             child: _isPassedStep(step)
                 ? Text(
                     '$step',
-                    style: const TextStyle(color: StepperColors.white500, fontSize: 12, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        color: StepperColors.white500,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold),
                   )
                 : const Icon(
                     Icons.done_rounded,

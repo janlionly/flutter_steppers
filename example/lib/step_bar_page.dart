@@ -11,7 +11,6 @@ class StepBarPage extends StatefulWidget {
 }
 
 class _StepBarPageState extends State<StepBarPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +22,8 @@ class _StepBarPageState extends State<StepBarPage> {
             ),
             Text(
               'Horizontal Steppers',
-              style: StepperStyles.t16SB.copyWith(color: StepperColors.grey500s),
+              style:
+                  StepperStyles.t16SB.copyWith(color: StepperColors.grey500s),
             ),
             const SizedBox(
               height: 16,
@@ -34,7 +34,8 @@ class _StepBarPageState extends State<StepBarPage> {
             ),
             Text(
               'Vertical Steppers',
-              style: StepperStyles.t16SB.copyWith(color: StepperColors.grey500s),
+              style:
+                  StepperStyles.t16SB.copyWith(color: StepperColors.grey500s),
             ),
             const SizedBox(
               height: 16,

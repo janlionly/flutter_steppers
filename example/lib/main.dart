@@ -28,7 +28,6 @@ class StepBarPage extends StatefulWidget {
 }
 
 class _StepBarPageState extends State<StepBarPage> {
-
   var currentStep = 1;
   var totalSteps = 0;
   late List<StepperData> stepsData;
@@ -39,7 +38,9 @@ class _StepBarPageState extends State<StepBarPage> {
     stepsData = [
       StepperData(
         label: 'Step 1',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur risus est, sed consequat libero luctus vitae. Duis ultrices magna quis risus porttitor luctus. Nulla vel tempus nisl, ultricies congue lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+        state: StepperState.hidden,
+        description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur risus est, sed consequat libero luctus vitae. Duis ultrices magna quis risus porttitor luctus. Nulla vel tempus nisl, ultricies congue lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
         child: ElevatedButton(
           child: const Text('Button 1'),
           onPressed: () {},
@@ -47,14 +48,16 @@ class _StepBarPageState extends State<StepBarPage> {
       ),
       StepperData(
         label: 'Step 2',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur risus est, sed consequat libero luctus vitae. Duis ultrices magna quis risus porttitor luctus. Nulla vel tempus nisl, ultricies congue lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+        description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur risus est, sed consequat libero luctus vitae. Duis ultrices magna quis risus porttitor luctus. Nulla vel tempus nisl, ultricies congue lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
       ),
       StepperData(
         label: 'Step 3',
       ),
       StepperData(
         label: 'Step 4',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur risus est, sed consequat libero luctus vitae. Duis ultrices magna quis risus porttitor luctus. Nulla vel tempus nisl, ultricies congue lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+        description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur risus est, sed consequat libero luctus vitae. Duis ultrices magna quis risus porttitor luctus. Nulla vel tempus nisl, ultricies congue lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
       ),
     ];
     totalSteps = stepsData.length;
@@ -71,7 +74,8 @@ class _StepBarPageState extends State<StepBarPage> {
             ),
             Text(
               'Horizontal Steppers',
-              style: StepperStyles.t16SB.copyWith(color: StepperColors.grey500s),
+              style:
+                  StepperStyles.t16SB.copyWith(color: StepperColors.grey500s),
             ),
             const SizedBox(
               height: 16,
@@ -91,7 +95,8 @@ class _StepBarPageState extends State<StepBarPage> {
             ),
             Text(
               'Vertical Steppers',
-              style: StepperStyles.t16SB.copyWith(color: StepperColors.grey500s),
+              style:
+                  StepperStyles.t16SB.copyWith(color: StepperColors.grey500s),
             ),
             const SizedBox(
               height: 16,

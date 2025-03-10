@@ -16,6 +16,4 @@ class StepperData {
   Widget? child;
 }
 
-enum StepperState {
-  normal, loading, error, success
-}
+enum StepperState { normal, loading, error, success, hidden }

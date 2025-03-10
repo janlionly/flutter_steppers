@@ -21,7 +21,8 @@ class VerticalSteppers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    assert(1 < _totalSteps && _totalSteps < 6 && currentStep <= _totalSteps + 1, 'Invalid progress steps');
+    assert(1 < _totalSteps && _totalSteps < 6 && currentStep <= _totalSteps + 1,
+        'Invalid progress steps');
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: _buildListStepWidgets(),
@@ -40,38 +41,41 @@ class VerticalSteppers extends StatelessWidget {
   }
 
   _buildProgressItemWidget({required StepperData stepData, required int step}) {
-    return IntrinsicHeight(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Column(
-            mainAxisSize: MainAxisSize.min,
+    return Offstage(
+        offstage: stepData.state == StepperState.hidden,
+        child: IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Container(
-                width: 32,
-                height: 32,
-                padding: const EdgeInsets.symmetric(horizontal: 4),
-                decoration: BoxDecoration(
-                  color: (step == currentStep && stepData.state != StepperState.error)
-                      ? stepBarStyle.activeBorderColor
-                      : StepperColors.transparent,
-                  shape: BoxShape.circle,
-                ),
-                child: StepperIcon(
-                  step: step,
-                  currentStep: currentStep,
-                  stepBarStyle: stepBarStyle,
-                  stepData: stepData,
-                ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: 32,
+                    height: 32,
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                    decoration: BoxDecoration(
+                      color: (step == currentStep &&
+                              stepData.state != StepperState.error)
+                          ? stepBarStyle.activeBorderColor
+                          : StepperColors.transparent,
+                      shape: BoxShape.circle,
+                    ),
+                    child: StepperIcon(
+                      step: step,
+                      currentStep: currentStep,
+                      stepBarStyle: stepBarStyle,
+                      stepData: stepData,
+                    ),
+                  ),
+                  _buildSeparatorLine(step, stepData),
+                ],
               ),
-              _buildSeparatorLine(step, stepData),
+              _buildStepContentWidget(step, stepData),
             ],
           ),
-          _buildStepContentWidget(step, stepData),
-        ],
-      ),
-    );
+        ));
   }
 
   Widget _buildSeparatorLine(int step, StepperData stepData) {
@@ -86,11 +90,16 @@ class VerticalSteppers extends StatelessWidget {
   _isEmpty(String? text) => text == null || text.isEmpty;
 
   _dividerColor(int step, StepperData stepData) {
-    if (step == _totalSteps && stepData.child == null && _isEmpty(stepData.description)) {
+    if (step == _totalSteps &&
+        stepData.child == null &&
+        _isEmpty(stepData.description)) {
       return StepperColors.transparent;
     }
-    if (step < _totalSteps && labels[step].state == StepperState.error) return StepperColors.red500;
-    return currentStep > step ? stepBarStyle.activeColor : stepBarStyle.inactiveColor;
+    if (step < _totalSteps && labels[step].state == StepperState.error)
+      return StepperColors.red500;
+    return currentStep > step
+        ? stepBarStyle.activeColor
+        : stepBarStyle.inactiveColor;
   }
 
   _buildStepContentWidget(int step, StepperData stepData) {
@@ -102,7 +111,8 @@ class VerticalSteppers extends StatelessWidget {
           children: [
             Text(
               stepData.label,
-              style: StepperStyles.t16SB.copyWith(color: _labelColor(step, stepData)),
+              style: StepperStyles.t16SB
+                  .copyWith(color: _labelColor(step, stepData)),
             ),
             if (!_isEmpty(stepData.description))
               Padding(
@@ -111,7 +121,8 @@ class VerticalSteppers extends StatelessWidget {
                   stepData.description!,
                   maxLines: stepBarStyle.maxLineLabel,
                   overflow: TextOverflow.ellipsis,
-                  style: StepperStyles.t14R.copyWith(color: _descriptionColor(step, stepData)),
+                  style: StepperStyles.t14R
+                      .copyWith(color: _descriptionColor(step, stepData)),
                 ),
               ),
             stepData.child ?? const SizedBox.shrink(),
@@ -123,11 +134,16 @@ class VerticalSteppers extends StatelessWidget {
 
   _labelColor(int step, StepperData stepData) {
     if (stepData.state == StepperState.error) return StepperColors.red500;
-    return currentStep >= step ? stepBarStyle.activeColor : stepBarStyle.inactiveColor;
+    return currentStep >= step
+        ? stepBarStyle.activeColor
+        : stepBarStyle.inactiveColor;
   }
 
   _descriptionColor(int step, StepperData stepData) {
-    if (stepData.state == StepperState.error) return stepBarStyle.inactiveDescriptionTextColor;
-    return currentStep >= step ? stepBarStyle.activeDescriptionTextColor : stepBarStyle.inactiveDescriptionTextColor;
+    if (stepData.state == StepperState.error)
+      return stepBarStyle.inactiveDescriptionTextColor;
+    return currentStep >= step
+        ? stepBarStyle.activeDescriptionTextColor
+        : stepBarStyle.inactiveDescriptionTextColor;
   }
 }
