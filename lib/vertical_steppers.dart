@@ -59,7 +59,8 @@ class VerticalSteppers extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 4),
                     decoration: BoxDecoration(
                       color: (step == currentStep &&
-                              stepData.state != StepperState.error)
+                              stepData.state != StepperState.error &&
+                              stepData.state != StepperState.success)
                           ? stepBarStyle.activeBorderColor
                           : StepperColors.transparent,
                       shape: BoxShape.circle,
@@ -138,6 +139,7 @@ class VerticalSteppers extends StatelessWidget {
 
   _labelColor(int step, StepperData stepData) {
     if (stepData.state == StepperState.error) return StepperColors.red500;
+    if (stepData.state == StepperState.success) return StepperColors.green500;
     return currentStep >= step
         ? stepBarStyle.activeColor
         : stepBarStyle.inactiveColor;

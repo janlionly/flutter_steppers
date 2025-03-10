@@ -65,6 +65,7 @@ class HorizontalStepperItem extends StatelessWidget {
 
   get _getTextColor {
     if (stepData.state == StepperState.error) return StepperColors.red500;
+    if (stepData.state == StepperState.success) return StepperColors.green500;
     if (_isCurrentStep(step)) return stepBarStyle.activeColor;
     return stepBarStyle.inactiveLabelTextColor;
   }

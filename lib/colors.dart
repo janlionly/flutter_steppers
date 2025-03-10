@@ -18,4 +18,5 @@ class StepperColors {
   static const Color grey300s = Color(0xFF9F9F9F);
   static const Color grey500s = Color(0xFF000000);
   static const Color grey400s = Color(0xFF6F6F6F);
+  static const Color green500 = Color(0XFF0FBD58);
 }

@@ -38,7 +38,7 @@ class _StepBarPageState extends State<StepBarPage> {
     stepsData = [
       StepperData(
         label: 'Step 1',
-        state: StepperState.hidden,
+        state: StepperState.error,
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur risus est, sed consequat libero luctus vitae. Duis ultrices magna quis risus porttitor luctus. Nulla vel tempus nisl, ultricies congue lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
         child: ElevatedButton(
@@ -48,6 +48,7 @@ class _StepBarPageState extends State<StepBarPage> {
       ),
       StepperData(
         label: 'Step 2',
+        state: StepperState.success,
         description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur risus est, sed consequat libero luctus vitae. Duis ultrices magna quis risus porttitor luctus. Nulla vel tempus nisl, ultricies congue lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
       ),
