@@ -16,7 +16,7 @@ class HorizontalStepperItem extends StatelessWidget {
     Map<String, Object>? trackingParam,
     String? identity,
     TargetPlatform? platformOverride,
-  }): super(key: key);
+  }) : super(key: key);
 
   final int step;
   final int currentStep;
@@ -36,9 +36,10 @@ class HorizontalStepperItem extends StatelessWidget {
             height: 32,
             padding: const EdgeInsets.symmetric(horizontal: 4),
             decoration: BoxDecoration(
-              color: (step == currentStep && stepData.state != StepperState.error)
-                  ? stepBarStyle.activeBorderColor
-                  : StepperColors.transparent,
+              color:
+                  (step == currentStep && stepData.state != StepperState.error)
+                      ? stepBarStyle.activeBorderColor
+                      : StepperColors.transparent,
               shape: BoxShape.circle,
             ),
             child: StepperIcon(
@@ -54,8 +55,7 @@ class HorizontalStepperItem extends StatelessWidget {
     );
   }
 
-  Widget _buildStepDescriptionWidget(int step, String label) =>
-      Text(
+  Widget _buildStepDescriptionWidget(int step, String label) => Text(
         label,
         textAlign: TextAlign.center,
         maxLines: stepBarStyle.maxLineLabel,
